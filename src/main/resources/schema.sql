@@ -19,3 +19,15 @@ CREATE TABLE IF NOT EXISTS ShoppingList.items (
 	created_utc VARCHAR(45) NOT NULL,
 	modified_utc VARCHAR(45) NOT NULL,
 	PRIMARY KEY (id));
+	
+CREATE TABLE IF NOT EXIST ShoppingList.notes (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	shopping_list_item_id INT UNSIGNED NOT NULL,
+	body VARCHAR (200) NOT NULL,
+	created_utc VARCHAR(45) NOT NULL,
+	modified_utc VARCHAR(45) NOT NULL,
+	PRIMARY KEY (id));
+	
+
+)
+
