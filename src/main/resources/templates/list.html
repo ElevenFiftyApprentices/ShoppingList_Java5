@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Shopping Lists</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+<div class = "row">
+
+	<!-- <h1 style="font-family:arial;">Orders</h1> -->
+<!-- 	MAKE SURE TO USE CORRECT PATH! MUST SET UP CONTROLLER BELOW
+ -->	<a href="/" th:href="@{|/list/create|}" class="btn btn-primary">Add List</a>
+
+	<table class = "table table-striped table-hover">
+
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Options</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="list : ${lists}">
+				<td th:text="${list.name}"></td>
+				<td><a class="btn btn-success" href="/" th:href="@{|/list/${list.shoppingListId}|}" role="button">View</a></td>
+				<td><a class="btn btn-danger" href="/" th:href="@{|/list/${list.shoppingListId}/delete|}" role="button">Delete</a></td>
+				
+			</tr>
+		</tbody>
+		
+		
+		
+	</table>
+	</div>
+</body>
+</html>
