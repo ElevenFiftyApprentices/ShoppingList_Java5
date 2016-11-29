@@ -9,3 +9,13 @@ CREATE TABLE IF NOT EXISTS ShoppingList.lists (
 	created_utc VARCHAR(45) NOT NULL,
 	modified_utc VARCHAR(45) NOT NULL,
 	PRIMARY KEY (id));
+
+CREATE TABLE IF NOT EXISTS ShoppingList.items (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	shopping_list_id INT UNSIGNED NOT NULL,
+	contents VARCHAR(90) NOT NULL,
+	priority INT(35) NOT NULL,
+	is_checked BOOLEAN(30) NOT NULL,
+	created_utc VARCHAR(45) NOT NULL,
+	modified_utc VARCHAR(45) NOT NULL,
+	PRIMARY KEY (id));

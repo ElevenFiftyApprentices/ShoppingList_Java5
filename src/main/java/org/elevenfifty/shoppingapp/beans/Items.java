@@ -9,50 +9,57 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "lists")
-public class Lists {
+@Table(name = "items")
+public class Items {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int id;
 	
-	public int userId;
-	public String name;
-	public String color;
+	public int shoppingListId;
+	public String contents;
+	public int priority;
+	public boolean isChecked;
 	public OffsetDateTime createdUtc;
 	public OffsetDateTime modifiedUtc;
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public int getShoppingListId() {
+		return shoppingListId;
 	}
-	public int getUserId() {
-		return userId;
+	public String getContents() {
+		return contents;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public int getPriority() {
+		return priority;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getColor() {
-		return color;
-	}
-	public void setColor(String color) {
-		this.color = color;
+	public boolean isChecked() {
+		return isChecked;
 	}
 	public OffsetDateTime getCreatedUtc() {
 		return createdUtc;
 	}
-	public void setCreatedUtc(OffsetDateTime createdUtc) {
-		this.createdUtc = createdUtc;
-	}
 	public OffsetDateTime getModifiedUtc() {
 		return modifiedUtc;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setShoppingListId(int shoppingListId) {
+		this.shoppingListId = shoppingListId;
+	}
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+	public void setChecked(boolean isChecked) {
+		this.isChecked = isChecked;
+	}
+	public void setCreatedUtc(OffsetDateTime createdUtc) {
+		this.createdUtc = createdUtc;
 	}
 	public void setModifiedUtc(OffsetDateTime modifiedUtc) {
 		this.modifiedUtc = modifiedUtc;
@@ -73,11 +80,9 @@ public class Lists {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Lists other = (Lists) obj;
+		Items other = (Items) obj;
 		if (id != other.id)
 			return false;
 		return true;
 	}
-	
-	
 }
